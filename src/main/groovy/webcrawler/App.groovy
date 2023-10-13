@@ -11,9 +11,10 @@ class App {
 
     static void main(String[] args) {
 
-        //Task1.downloadComponenteComunicacao()
+        Task1.downloadComponenteComunicacao()
         Task2.coletarDados()
-        //Task3.downloadTabelaErros()
+        Task3.downloadTabelaErros()
+
     }
 }
 

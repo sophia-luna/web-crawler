@@ -10,59 +10,14 @@ class Task3 {
 
     static Document document
 
-    static void acessarSite(String url){
+    static void downloadTabelaErros() {
 
-        document = Jsoup.connect(url).get()
+        try{
 
-    }
-
-    static String buscarElemento(String busca){
-
-        Element link = document.select(busca).first()
-
-        if(link) {
-
-            String href = link.attr('href')
-            println 'Link encontrado: ' + href
-            return href
-
-        } else {
-
-            println busca + 'nao encontrado.'
-            return ""
-
-        }
-
-    }
-
-    static void downloadTabelaErros(){
-
-        try {
-
-            //acessar site do governo
-            String url = 'https://www.gov.br/ans/pt-br'
-            acessarSite(url)
-
-            //buscar espaço do prestador de serviços de saúde
-            url = buscarElemento('a:contains(Espaço do Prestador de Serviços de Saúde)')
-
-            //acessar site do prestador de serviços de saúde
-            acessarSite(url)
-
-            //buscar tiss
-            url = buscarElemento('a:contains(TISS - Padrão para Troca de Informação de Saúde Suplementar)')
-
-            //acessar tiss
-            acessarSite(url)
-
-            //buscar tabelas relacionadas
-            url = buscarElemento('a:contains(Clique aqui para acessar as planilhas)')
-
-            //acessa tabelas relacionadas
-            acessarSite(url)
+            acessarTabelaErros()
 
             //download tabelas
-            def downloadLink = document.select("a:contains(Clique aqui para baixar a tabela de erros no envio para a ANS (.xlsx))").first()
+            Element downloadLink = document.select("a:contains(Clique aqui para baixar a tabela de erros no envio para a ANS (.xlsx))").first()
 
             if (downloadLink) {
 
@@ -95,9 +50,65 @@ class Task3 {
             }
 
         } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+
+    static void acessarTabelaErros() {
+
+        try {
+
+            //acessar site do governo
+            String url = 'https://www.gov.br/ans/pt-br'
+            acessarSite(url)
+
+            //buscar espaço do prestador de serviços de saúde
+            url = buscarElemento('a:contains(Espaço do Prestador de Serviços de Saúde)')
+
+            //acessar site do prestador de serviços de saúde
+            acessarSite(url)
+
+            //buscar tiss
+            url = buscarElemento('a:contains(TISS - Padrão para Troca de Informação de Saúde Suplementar)')
+
+            //acessar tiss
+            acessarSite(url)
+
+            //buscar tabelas relacionadas
+            url = buscarElemento('a:contains(Clique aqui para acessar as planilhas)')
+
+            //acessa tabelas relacionadas
+            acessarSite(url)
+
+        } catch (Exception e) {
 
             e.printStackTrace()
 
         }
+    }
+
+    static void acessarSite(String url){
+
+        document = Jsoup.connect(url).get()
+
+    }
+
+    static String buscarElemento(String busca){
+
+        Element link = document.select(busca).first()
+
+        if(link) {
+
+            String href = link.attr('href')
+            println 'Link encontrado: ' + href
+            return href
+
+        } else {
+
+            println busca + 'nao encontrado.'
+            return ""
+
+        }
+
     }
 }

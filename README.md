@@ -1,7 +1,14 @@
 # web-crawler
-o bot realiza as seguintes tarefas:
+
+Bot ou web spider é um algoritmo usado pelos buscadores para encontrar, ler e indexar páginas de um site. 
+O objetivo deste foi realizar algumas tarefas a partir do site da
+Agência Nacional de Saúde Suplementar do governo (https://www.gov.br/ans/pt-br).
+
+
+o bot desenvolvido realiza as seguintes tasks:
 
 ## task 1:
+
 - Baixar os aquivos da documentação do padrão TISS (Troca de Informações na Saúde Suplementar), na versão mais recente. 
 - Esses arquivos estão disponíveis no site do Governo no campo "Espaço do Prestador de Serviços de Saúde", baixar o componente de comunicação.
 ## task 2:

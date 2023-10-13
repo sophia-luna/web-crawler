@@ -10,31 +10,6 @@ class Task2 {
 
     static Document document
 
-    static void acessarSite(String url){
-
-        document = Jsoup.connect(url).get()
-
-    }
-
-    static String buscarElemento(String busca){
-
-        Element link = document.select(busca).first()
-
-        if(link) {
-
-            String href = link.attr('href')
-            println 'Link encontrado: ' + href
-            return href
-
-        } else {
-
-            println busca + 'nao encontrado.'
-            return ""
-
-        }
-
-    }
-
     static void acessarHistorico(){
 
         try {
@@ -106,7 +81,6 @@ class Task2 {
         }
     }
 
-
     static void salvarDados(LinkedList<Row> rows){
 
         File file = new File('downloads/Historico.txt')
@@ -119,5 +93,30 @@ class Task2 {
         }
 
         println("Historico salvo em 'downloads/Historico.txt'.")
+    }
+
+    static void acessarSite(String url){
+
+        document = Jsoup.connect(url).get()
+
+    }
+
+    static String buscarElemento(String busca){
+
+        Element link = document.select(busca).first()
+
+        if(link) {
+
+            String href = link.attr('href')
+            println 'Link encontrado: ' + href
+            return href
+
+        } else {
+
+            println busca + 'nao encontrado.'
+            return ""
+
+        }
+
     }
 }
