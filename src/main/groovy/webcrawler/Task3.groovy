@@ -1,10 +1,10 @@
 package webcrawler
 
+import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
-import java.sql.Connection
 
 class Task3 {
 
