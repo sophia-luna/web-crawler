@@ -10,7 +10,10 @@ import org.jsoup.nodes.Element
 class App {
 
     static void main(String[] args) {
-        Task1.downloadComponenteComunicacao()
+
+        //Task1.downloadComponenteComunicacao()
+
+        //Task3.downloadTabelaErros()
     }
 }
 
